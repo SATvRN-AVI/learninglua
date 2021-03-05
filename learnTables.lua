@@ -23,21 +23,33 @@ print(type(meaningOfLife)) -- We print the variable with the table and use the '
 
 local creatures = {} -- Declare a table name
 
-creatures[1] = "Orc" -- So we assign the first position with the table to the string "Orc" // the '[]' assign what position to put the value
+creatures[1] = "Orc" -- So we assign the first position the value of 1 and value of the string "Orc" // the '[]' is where you assign the position to put the value
 
-print(creatures[1]) -- We then print the first position in the table 'monster'
+print(creatures[1]) -- We then print the key in table 'creatures    '
 
 -- NOTE: the value within '[]' can be almost anything. I.E. (numbers, letters, function names, etc.)
 
 -- *******************************************************************
 
-local hostile = {}
-
-hostile[1] = "Orc"
-hostile[2] = "Skeleton"
+local hostile = {"Orc" , "Skeleton", "Second Orc"}
 
 for k,v in pairs(hostile) do -- Above we declared a table and put two data pairs inside. 'k'ey '1' with 'v' of 'Orc' etc.
-    print(k .. " , " .. v) -- this line prints both the key and value we assigned. The 
-end
+    print(#hostile) -- It prints the lengths of the table you're calling, in this case the 'hostile' table
+    print(k .. " , " .. v) -- this line prints both the key and value of the data in the table. 
+end 
 
+-- *******************************************************************
 
+--[[ 
+    The table below is assigned two tables within itself for values of enemies in a supposed game.
+    These can be used in a similar way to classes from languages like Java.
+]]
+local morehostiles = {
+    
+    Slime = { Name = "Slime", HitPoints = 42, Description = "Gooey. Caustic."},
+    Werewolf = { Name = "Werewolf", HitPoints = 44, Description = "Hope you have silver..."}
+}    
+
+print(morehostiles["Slime"]["Name"]) -- Here we specify we want the sub-table 'Slime' and the value of key 'Name' within it.
+print(morehostiles.Werewolf.Name) -- This code here is the same as above it's just cleaner and less wordy.
+print(morehostiles.Werewolf.HitPoints .. " " .. morehostiles.Werewolf.Description) -- We can call different
